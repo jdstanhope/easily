@@ -3,6 +3,7 @@
 //
 
 #include "BlockingChannel.h"
+#include "SystemError.h"
 #include <cassert>
 #include <unistd.h>
 #include <algorithm>
@@ -39,23 +40,7 @@ std::string BlockingChannel::read()
             break;
         } else if (readSize == -1) {
             _error = true;
-            switch (errno) {
-                case EAGAIN:
-                    break;
-                case EBADF:
-                    break;
-                case EFAULT:
-                    break;
-                case EINTR:
-                    break;
-                case EINVAL:
-                    break;
-                case EIO:
-                    break;
-                case EISDIR:
-                    break;
-            }
-            throw std::runtime_error("");
+            throw SystemError(__FUNCTION__, "read", errno);
         }
     }
     return std::move(request);
