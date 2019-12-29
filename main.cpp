@@ -4,7 +4,7 @@
 
 int main(int argc, const char* argv[]) {
     try {
-        CommandLine commandLine(argc, argv);
+        auto commandLine = std::make_shared<CommandLine>(argc, argv);
         WebServer server(commandLine);
         return server.run();
     } catch (std::invalid_argument& invalid) {

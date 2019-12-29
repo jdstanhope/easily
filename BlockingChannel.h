@@ -13,6 +13,7 @@ public:
     ~BlockingChannel();
 
     std::string read();
+    void write(const std::string &data);
 
 private:
     int _fd;
