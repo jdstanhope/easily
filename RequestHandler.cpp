@@ -4,5 +4,5 @@
 #include "RequestHandler.h"
 
 std::shared_ptr<Response> RequestHandler::handle(std::shared_ptr<Request> request) {
-    return std::shared_ptr<Response>();
+    return std::make_shared<Response>(request);
 }

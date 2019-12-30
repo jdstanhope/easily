@@ -29,7 +29,7 @@ const char* SystemError::what() const _NOEXCEPT {
 
 void SystemError::formatWhat() {
     std::ostringstream stream;
-    stream << "error(" << _code << ", " << codeAsString() << "): from " << _appCall << " when calling " << _sysCall << "()";
+    stream << codeAsString() << "(" << _code << ") from " << _appCall << " when calling " << _sysCall << "()";
     _message = stream.str();
 }
 

@@ -3,3 +3,6 @@
 //
 
 #include "Response.h"
+
+Response::Response(std::shared_ptr<Request> request) : _request(request) {
+}

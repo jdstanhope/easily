@@ -6,10 +6,16 @@
 #define EASILY_RESPONSE_H
 
 #include <string>
+#include "Request.h"
 
 class Response {
 public:
-    std::string data() const { return std::string("Hello World\r\n"); }
+    explicit Response(std::shared_ptr<Request> request);
+
+    std::string data() const { return std::string("HTTP/1.1 200 OK\r\n\r\nHello World\r\n"); }
+
+private:
+    std::shared_ptr<Request> _request;
 };
 
 #endif //EASILY_RESPONSE_H
