@@ -8,11 +8,13 @@
 #include <utility>
 
 WebServer::WebServer(std::shared_ptr<CommandLine> commandLine, std::shared_ptr<Logger> logger)
-: _commandLine(std::move(commandLine)), _logger(std::move(logger)) {
+: _commandLine(std::move(commandLine)), _logger(std::move(logger))
+{
     _requestHandler = std::make_shared<RequestHandler>();
 }
 
-int WebServer::run() {
+int WebServer::run()
+{
     try {
         _logger->info("starting blocking listener");
         auto listener = std::make_shared<BlockingListener>(_commandLine->port());

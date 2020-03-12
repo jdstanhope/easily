@@ -10,16 +10,19 @@
 #include <cerrno>
 #include <sys/socket.h>
 
-BlockingChannel::BlockingChannel(int fd) : _fd(fd), _error(false) {
+BlockingChannel::BlockingChannel(int fd) : _fd(fd), _error(false)
+{
     assert(_fd != -1);
 }
 
-BlockingChannel::~BlockingChannel() {
+BlockingChannel::~BlockingChannel()
+{
     ::shutdown(_fd, SHUT_RDWR);
     ::close(_fd);
 }
 
-std::string BlockingChannel::read() {
+std::string BlockingChannel::read()
+{
     std::string request;
     size_t readBufferSize = 1024;
     auto readBuffer = std::unique_ptr<char>(new char[readBufferSize]);
@@ -45,7 +48,8 @@ std::string BlockingChannel::read() {
     return std::move(request);
 }
 
-void BlockingChannel::write(const std::string &data) {
+void BlockingChannel::write(const std::string &data)
+{
     int result = ::write(_fd, data.c_str(), data.length());
     if (result != data.length()) {
         throw SystemError(__FUNCTION__, "write", errno);

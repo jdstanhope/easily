@@ -5,7 +5,7 @@
 #include "Request.h"
 #include <utility>
 
-Request::Request(std::string data)
-: _data(std::move(data)) {
+Request::Request(std::string data) : _data(std::move(data))
+{
 
 }
