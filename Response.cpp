@@ -6,3 +6,7 @@
 
 Response::Response(std::shared_ptr<Request> request) : _request(request) {
 }
+
+std::string Response::data() const {
+    return std::string("HTTP/1.1 200 OK\r\n\r\nHello World\r\n");
+}

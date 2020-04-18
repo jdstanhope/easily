@@ -12,7 +12,7 @@ class Response {
 public:
     explicit Response(std::shared_ptr<Request> request);
 
-    std::string data() const { return std::string("HTTP/1.1 200 OK\r\n\r\nHello World\r\n"); }
+    std::string data() const;
 
 private:
     std::shared_ptr<Request> _request;

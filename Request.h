@@ -10,7 +10,7 @@
 
 class Request {
 public:
-    Request(std::string data);
+    explicit Request(std::string data);
 
 private:
     std::string _data;
