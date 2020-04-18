@@ -3,6 +3,12 @@
 #include "WebServer.h"
 #include "Logger.h"
 
+/**
+ * Main entry point to the program
+ * @param argc
+ * @param argv
+ * @return error code
+ */
 int main(int argc, const char* argv[]) {
     try {
         auto commandLine = std::make_shared<CommandLine>(argc, argv);

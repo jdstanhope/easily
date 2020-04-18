@@ -7,7 +7,8 @@
 #include <sstream>
 #include <strstream>
 
-CommandLine::CommandLine(int count, const char **arguments) {
+CommandLine::CommandLine(int count, const char **arguments)
+{
     for (int i=1 ; i<count ; ++i) {
         auto arg = arguments[i];
         auto length = strlen(arg);

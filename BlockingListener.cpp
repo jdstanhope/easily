@@ -40,7 +40,8 @@ void BlockingListener::bind()
     }
 }
 
-void BlockingListener::listen() {
+void BlockingListener::listen()
+{
     int backlog = 5;
     auto result = ::listen(_listeningFd, backlog);
     if (result == -1) {

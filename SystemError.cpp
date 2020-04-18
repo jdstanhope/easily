@@ -7,33 +7,40 @@
 #include <sstream>
 
 SystemError::SystemError(const char* appCall, const char* systemCall, int code)
-: _appCall(appCall), _sysCall(systemCall), _code(code) {
+: _appCall(appCall), _sysCall(systemCall), _code(code)
+{
     formatWhat();
 }
 
-std::string SystemError::appCall() const {
+std::string SystemError::appCall() const
+{
     return _appCall;
 }
 
-std::string SystemError::systemCall() const {
+std::string SystemError::systemCall() const
+{
     return _sysCall;
 }
 
-int SystemError::code() const {
+int SystemError::code() const
+{
     return _code;
 }
 
-const char* SystemError::what() const _NOEXCEPT {
+const char* SystemError::what() const _NOEXCEPT
+{
     return _message.c_str();
 }
 
-void SystemError::formatWhat() {
+void SystemError::formatWhat()
+{
     std::ostringstream stream;
     stream << codeAsString() << "(" << _code << ") from " << _appCall << " when calling " << _sysCall << "()";
     _message = stream.str();
 }
 
-const char *SystemError::codeAsString() {
+const char *SystemError::codeAsString()
+{
     switch (_code) {
         case EACCES:
             return "EACCES";

@@ -3,6 +3,7 @@
 //
 #include "RequestHandler.h"
 
-std::shared_ptr<Response> RequestHandler::handle(std::shared_ptr<Request> request) {
+std::shared_ptr<Response> RequestHandler::handle(std::shared_ptr<Request> request)
+{
     return std::make_shared<Response>(request);
 }
